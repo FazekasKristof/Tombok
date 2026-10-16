@@ -21,9 +21,35 @@
                 Console.WriteLine(torpok[i]);
             }
         }
+        static void torpValtoztatas()
+        {
+            Console.Write("Melyik törpöt cseréljük le? ");
+            string nev = Console.ReadLine();
+
+            // kiválasztás: van-e a tömbben ilyen név, és ha van, akkor hanyadik helyenű
+
+            int index = 0;
+            while (index < torpok.Length && torpok[index] != nev)
+            {
+                index++;
+            }
+            if (index < torpok.Length)
+            {
+                Console.Write("Melyik törpére cseréljük le? ");
+                string ujNev = Console.ReadLine();
+                torpok[index] = ujNev;
+                Console.WriteLine("Lecserélve");
+            }
+            else
+            {
+                Console.WriteLine("Nincs ilyen törp a tömbben!");
+            }
+        }
         static void Main(string[] args)
         {
             torpFeltoltes();
+            torpKiiras();
+            torpValtoztatas();
             torpKiiras();
             Console.ReadLine();
         }
